@@ -8,11 +8,7 @@ def checkKeys(keys, box):
     new_keys = []
 
     for k in box:
-        y = 0
-        for key in keys:
-            if key == k:
-                y = 1
-        if y == 0:
+        if k not in keys:
             new_keys.append(k)
 
     return new_keys
