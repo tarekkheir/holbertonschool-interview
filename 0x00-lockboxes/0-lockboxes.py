@@ -14,13 +14,12 @@ def checkKeys(keys, box):
                 y = 1
         if y == 0:
             new_keys.append(k)
-    
+
     return new_keys
 
 
 def canUnlockAll(boxes):
     """method that determines if all the boxes can be opened."""
-
 
     size = len(boxes)
 
@@ -37,7 +36,6 @@ def canUnlockAll(boxes):
         for key in keys:
 
             if boxes[key] != [-1]:
-                    
                 new_keys += checkKeys(keys, boxes[key])
                 boxes[key] = [-1]
 
@@ -45,5 +43,5 @@ def canUnlockAll(boxes):
 
     if boxes.count([-1]) == size:
         return True
-    
+
     return False
