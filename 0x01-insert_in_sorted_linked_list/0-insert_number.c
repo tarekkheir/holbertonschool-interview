@@ -7,8 +7,11 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (cell == NULL)
 		return (NULL);
-
-	cell->n = number;
+    
+    cell->n = number;
+    
+    if (*head == NULL)
+        return (cell);
 	
     if (number < cur->n)
     {
