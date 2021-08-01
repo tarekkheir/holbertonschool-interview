@@ -10,9 +10,9 @@ listint_t *insert_node(listint_t **head, int number)
     
     cell->n = number;
     
-    if (!*head)
+    if (*head == NULL)
         return (cell);
-	
+    
     if (number < cur->n)
     {
         cell->next = cur;
