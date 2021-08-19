@@ -22,7 +22,7 @@ static void print_grid(int grid[3][3])
 }
 
 /**
- * chek_stable - check if sandpile is stable
+ * check_stable - check if sandpile is stable
  * @grid: sandpile to check
  * Return: 1 if sandpile is stable or 0
  */
@@ -33,14 +33,14 @@ int check_stable(int grid[3][3])
 
 	while (j < 3)
 	{
-        i = 0;
+		i = 0;
 		while (i < 3)
 		{
 			if (grid[j][i] > 3)
 				return (0);
-            i++;
+			i++;
 		}
-        j++;
+		j++;
 	}
 	return (1);
 }
