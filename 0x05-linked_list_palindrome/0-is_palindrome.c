@@ -15,22 +15,22 @@ int is_palindrome(listint_t **head)
     int j = 0;
     int tab[512];
 
-    if (*head == NULL)
-        return (1);
-    
-    while (size)
+    if (*head != NULL)
     {
-        tab[i] = size->n;
-        size = size->next;
-        i++;
-    }
+        while (size)
+        {
+            tab[i] = size->n;
+            size = size->next;
+            i++;
+        }
 
-    while (j < i / 2)
-    {
-        if (tab[j] == tab[i - j - 1])
-            j++;
-        else
-            return (0);
+        while (j < i / 2)
+        {
+            if (tab[j] == tab[i - j - 1])
+                j++;
+            else
+                return (0);
+        }
     }
 
     return (1);
