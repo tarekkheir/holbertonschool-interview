@@ -3,17 +3,30 @@
 Validation file
 """
 
-def decimalToBinary(n):
-    return "{0:b}".format(int(n))
-
-
 def validUTF8(data):
     """check list of integer"""
+    nbBytes = 0
 
-    for i in data:
-        binary = int(decimalToBinary(i))
+    mask1 = 1 << 7
+    mask2 = 1 << 6
 
-        if binary > 99999999:
-            return False
-    
-    return True
+    for byte in data:
+        mask = 1 << 7
+
+        if nbBytes == 0:
+            while byte & mask:
+                nbBytes += 1
+                mask = mask >> 1
+
+            if nbBytes == 0:
+                continue
+
+            if nbBytes == 1 or nbBytes > 4:
+                return False
+
+        else:
+            if not byte & mask1 and byte & mask2:
+                return False
+        nbBytes -= 1
+
+    return nbBytes == 0
