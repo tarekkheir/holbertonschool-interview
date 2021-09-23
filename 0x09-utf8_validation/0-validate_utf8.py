@@ -5,28 +5,28 @@ Validation file
 
 def validUTF8(data):
     """check list of integer"""
-    nbBytes = 0
+    n_bytes = 0
 
     mask1 = 1 << 7
     mask2 = 1 << 6
 
-    for byte in data:
+    for num in data:
         mask = 1 << 7
 
-        if nbBytes == 0:
-            while byte & mask:
-                nbBytes += 1
+        if n_bytes == 0:
+            while mask & num:
+                n_bytes += 1
                 mask = mask >> 1
 
-            if nbBytes == 0:
+            if n_bytes == 0:
                 continue
 
-            if nbBytes == 1 or nbBytes > 4:
+            if n_bytes == 1 or n_bytes > 4:
                 return False
 
         else:
-            if not byte & mask1 and byte & mask2:
+            if not (num & mask1 and not (num & mask2)):
                 return False
-        nbBytes -= 1
+        n_bytes -= 1
 
-    return nbBytes == 0
+    return n_bytes == 0
