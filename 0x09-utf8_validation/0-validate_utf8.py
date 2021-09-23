@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Validation file"""
 
+
 def validUTF8(data):
     """Checks if data is valid UTF8
     Arguments:
