@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""
-Validation file
-"""
+"""Validation file"""
 
 def validUTF8(data):
-    """check list of integer"""
+    """Checks if data is valid UTF8
+    Arguments:
+        data: list if integers
+    Return:
+        True if data is valid UTF8, False if not
+    """
     n_bytes = 0
 
     mask1 = 1 << 7
