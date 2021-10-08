@@ -10,28 +10,26 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *size = *head;
-	int i = 0;
-    int j = 0;
-    int tab[512];
+	listint_t *lst = *head;
+	int val[2048], i = 0, j = 0;
 
-    if (*head == NULL)
-        return (1);
-    
-    while (size)
-    {
-        tab[i] = size->n;
-        size = size->next;
-        i++;
-    }
+	if (*head)
+	{
+		while (lst)
+		{
+			val[i] = lst->n;
+			lst = lst->next;
+			i++;
+		}
 
-    while (j < i / 2)
-    {
-        if (tab[j] == tab[i - j - 1])
-            j++;
-        else
-            return (0);
-    }
+		while (j < i / 2)
+		{
+			if (val[j] == val[i - j - 1])
+				j++;
+			else
+				return (0);
+		}
+	}
 
-    return (1);
+	return (1);
 }
